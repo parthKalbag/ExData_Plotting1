@@ -1,0 +1,6 @@
+df <- read.csv("household_power_consumption.txt", sep = ";", na.strings = "?", header = TRUE, stringsAsFactors = FALSE)
+df <- subset(df, Date %in% c("1/2/2007","2/2/2007"))
+df$Date <- as.Date(df$Date, format = "%d/%m/%Y")
+png("plot1.png", width=480, height=480)
+hist(df$Global_active_power, xlab = "Global Active Power(kilowatts)", main = "Global Active Power", ylab = "Frequency", col = "red")
+dev.off()
